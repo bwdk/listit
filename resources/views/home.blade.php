@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Dashboard <span class="float-right"><a href="/listings/create" class="btn btn-secondary">Create Listings</a></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,7 +15,8 @@
 
                     <h4>Your listings</h4>
 
-                    @if (count((is_countable($listings) ? $listings : [])))
+                    @if (isset($listings->num_rows) && $listings->num_rows > 0)
+                    <!--(count((is_countable($listings) ? $listings : [])))-->
                     
                     <table class="table table-striped">
                             
@@ -37,5 +37,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection

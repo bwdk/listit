@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::resource('listings', 'ListingsController');
+
+Route::get('/home', 'HomeController@index')->name('home');

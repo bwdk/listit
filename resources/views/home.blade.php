@@ -15,17 +15,15 @@
 
                     <h4>Your listings</h4>
 
-                    @if (isset($listings->num_rows) && $listings->num_rows > 0)
-                    <!--(count((is_countable($listings) ? $listings : [])))-->
-                    
+                    @if (count($listings))
+                    <!--(isset($listings->num_rows) && $listings->num_rows > 0)--> <!-- (count((is_countable($listings) ? $listings : []))) -->
                     <table class="table table-striped">
-                            
                             <tr>
                                 <th>Company</th>
                             </tr>
                     @foreach ($listings as $listing)
                             <tr>
-                                <td>{{ $listings->name }}</td>
+                                <td>{{ $listing->name }}</td>
                             </tr>
                     @endforeach
                     </table>

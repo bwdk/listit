@@ -28,10 +28,6 @@ class HomeController extends Controller
 
         $listings = Auth::user()->listings;
 
-       // dd($listings);
-
-       // $listings = Listing::all();
-
-        return view('home')->with('listings', '$listings');
+        return view('home')->with('listings', $listings);
     }
 }

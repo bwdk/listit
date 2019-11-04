@@ -20,10 +20,21 @@
                     <table class="table table-striped">
                             <tr>
                                 <th>Company</th>
+                                <th></th>
+                             
                             </tr>
                     @foreach ($listings as $listing)
                             <tr>
-                                <td>{{ $listing->name }}</td>
+                                    <td>{{ $listing->name }}</td>
+                                    <td>
+                                    <form class="float-right ml-2" action="/listings/{{$listing->id }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                    
+                                
+                                    <a href="/listings/{{ $listing->id }}/edit" class="btn btn-info float-right">Edit</a></td>
                             </tr>
                     @endforeach
                     </table>
